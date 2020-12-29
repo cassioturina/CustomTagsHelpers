@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <p>Tags Helper</p>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-left">
+                    É Admin?
+                </th>
+                <th class="text-left">
+                    Está Ativo?
+                </th>
+
+                <th class="text-right">
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < 12; i++)
+            {
+
+                var admin = i % 2 == 0;
+                var ativo = i % 3 == 0;
+                var temAcesso = i % 4 == 0;
+
+
+                <tr>
+                    <td class="text-left">
+                        <span sim-nao="admin"></span>
+                    </td>
+                    <td class="text-left">
+                        <span sim-nao="ativo"></span>
+                    </td>
+
+
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <a asp-action="Atualizar" somente-admin="admin" class="btn btn-primary" asp-route-id="1">Atualizar</a>
+                            <a asp-action="Detalhes"  somente-admin="admin" class="btn btn-info" asp-route-id="1">Detalhes</a>
+                            <a asp-action="Desativar" somente-admin="admin" class="btn btn-danger" asp-route-id="1">Desativar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+</div>
